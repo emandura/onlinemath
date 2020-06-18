@@ -1,0 +1,633 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-image: url('background.jpg');
+
+
+}
+
+img {
+  width: 40px;
+  height: 30px;
+  display: inline-block;
+}
+
+.image {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background: -webkit-linear-gradient(to right, #581845, #C48E83);  
+    background: linear-gradient(to right, #581845, #C48E83); 
+}
+
+
+header > p {
+    font-family: VT323, monospace;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 50px;
+    margin-left: 60px;
+}
+
+.center {
+  padding-top: 35px;
+  padding-bottom: 35px;
+  height: 100px;
+}
+
+.test button {
+    height: 30px;
+    font-family: VT323, monospace;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 20px;
+    background:  #581845;
+    border-radius: 8px;
+    margin-right: 60px;
+    margin-top: 80px;
+    transition-duration: 0.4s;
+    border: none;
+  	align-items:center; 
+	  right:0;
+    float: right;
+}
+
+.test button:hover {
+  background-color: #C48E83;
+  color: white;
+}
+
+
+
+.column,.columnM > a {
+	text-shadow: 2px 2px #581845;
+	font-family: VT323, monospace;
+	font-weight: bold;
+ 	font-color: whitesmoke;
+  	font-size: 30px;
+  	text-decoration: none;
+  	transition-duration: 0.4s;
+
+}
+
+.column,.columnM  > a:hover {
+	color: #581845;
+	text-shadow: none;
+}
+
+.column,.columnM  {
+  float: left;
+  margin-left: 50px;
+  background: #756671;
+  font-family: VT323, monospace;
+  font-weight: bold;
+  color: whitesmoke;
+  font-size: 30px;
+  border-radius: 8px;
+  text-align: center;
+  height: 200px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  vertical-align: middle;
+  width: 220px;
+  text-shadow: 2px 2px #581845;
+  margin-bottom: 40px;
+
+}
+
+.columnM {
+  padding: 85px 5px;
+}
+
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
+
+.row {
+	 position: fixed;
+	 margin-top: 120px;
+	 margin-left: 10%;
+	 margin-right: 10%;
+   vertical-align: middle;
+
+
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.testStart button {
+    height: 30px;
+    font-family: VT323, monospace;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 20px;
+    background:  #581845;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    border: none;
+    align-items:center; 
+    position: relative;
+    float: right;
+
+}
+
+.testStart button:hover {
+    background-color: #C48E83;
+    color: white;
+}
+
+.testStart { 
+    font-size: 15px;
+    margin: auto;
+    width: 30%;
+    margin-top: 170px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #581845;
+    background: whitesmoke;
+    line-height: 17px;
+
+}
+
+.number {
+    color: #581845;
+    font-weight: bold;
+
+}
+
+.inline {
+  display: block;
+}
+
+.total {
+    font-family: VT323, monospace;
+    font-weight: bolder;
+
+}
+
+
+
+.testStart header{
+    height: 34px;
+    display: flex;
+    background: #581845;
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: middle;
+    padding: 15px;
+}
+
+.testDescription {
+    padding: 15px;
+    font-family: Arial;
+}
+
+
+header .testHeader {
+    font-family: VT323, monospace;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 26px;
+    margin-left: 60px;
+}
+
+
+.test {
+    font-size: 22px;
+    margin: auto;
+    margin-top: 30px;
+    width: 98%;
+    background: whitesmoke;
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px  solid #efefef;
+    box-shadow:
+        0 1px 1px rgba(0,0,0,0.15),
+        0 10px 0 -5px #eee,
+        0 10px 1px -4px rgba(0,0,0,0.15),
+        0 20px 0 -10px #eee,
+        0 20px 1px -9px rgba(0,0,0,0.15);
+    padding-top: 40px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+}
+
+.testCreate {
+      font-size: 22px;
+    margin: auto;
+    margin-top: 30px;
+    width: 98%;
+    background: whitesmoke;
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px  solid #efefef;
+    box-shadow:
+        0 1px 1px rgba(0,0,0,0.15),
+        0 10px 0 -5px #eee,
+        0 10px 1px -4px rgba(0,0,0,0.15),
+        0 20px 0 -10px #eee,
+        0 20px 1px -9px rgba(0,0,0,0.15);
+    padding-top: 40px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.test label {
+  display: block;
+}
+
+select {
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f0ccec;
+  font-family: Arial;
+  font-size: 18px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  margin-left: 25px;
+}
+
+hr {
+   border: 1px solid #D3D3D3;
+}
+
+.createTestInput input[type=text] {
+  width: 50%;
+}
+
+#first, #second, #third, #fourth {
+  margin-left: 10px;
+}
+
+
+label[for=checkbox]{
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+label[for=answerCreate] {
+  margin-top: 20px;
+}
+
+
+
+label[for=questionCreate], label[for=answerCreate]{
+  display: block;
+}
+
+label[for=questionCreate] {
+  margin-top: 30px;
+}
+
+
+
+
+label[for=uname], label[for=psw]{
+  font-family: VT323, monospace;
+  font-size: 22px;
+  margin-top: 30px;
+  margin-right: 20px;
+  margin-left: 20px;
+  display: block;
+}
+
+input[type=submit] {
+    height: 30px;
+    font-family: VT323, monospace;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 20px;
+    background:  #581845;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    border: none;
+    align-items:center; 
+    position: relative;
+    float: right;
+} 
+
+input[type=submit]:hover {
+    background-color: #C48E83;
+    color: white;
+}
+
+.login{
+  padding-bottom: 50px;
+}
+
+.login button {
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 20px;
+}
+
+input[type=text], input[type=password] {
+  width: 70%;
+  padding: 12px 20px;
+  margin-left:20px;
+  margin-top: 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+ a {
+text-decoration: none;
+}
+
+.solution {
+  width: 250px;
+  background-color: #ffd0ee;
+  margin: 40px 40px;
+  padding: 10px 5px;
+  border-radius: 3px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+   display: inline-block;
+}
+
+form > p {
+  font-size: 20px;
+  font-style: italic;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font: normal 13px sans-serif;
+}
+
+.comment-section{
+    list-style: none;
+    max-width: 800px;
+    width: 100%;
+    margin: 50px auto;
+    padding: 10px;
+}
+
+.comment{
+    display: flex;
+    border-radius: 3px;
+    margin-bottom: 45px;
+    flex-wrap: wrap;
+}
+
+.comment.user-comment{
+    color:  #808080;
+
+    font-family: VT323, monospace;
+}
+
+.comment.author-comment{
+    color:  #60686d;
+    justify-content: flex-end;
+}
+
+
+.comment .info{
+    width: 17%;
+}
+
+.comment.user-comment .info{
+    text-align: right;
+}
+
+.comment.author-comment .info{
+    order: 3;
+}
+
+
+.comment .info a{ 
+    display: block;
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0 3px 0;
+    font-size: 20px;
+}
+
+.comment .info span{  
+    font-size: 11px;
+    color:  #9ca7af;
+}
+
+
+.comment .avatar{
+    width: 8%;
+}
+
+.comment.user-comment .avatar{
+    padding: 10px 18px 0 3px;
+}
+
+.comment.author-comment .avatar{
+    order: 2;
+    padding: 10px 3px 0 18px;
+}
+
+.comment .avatar img{
+    display: block;
+    border-radius: 50%;
+}
+
+.comment.user-comment .avatar img{
+    float: right;
+}
+
+
+
+
+.comment p{
+    line-height: 1.5;
+    padding: 18px 22px;
+    width: 50%;
+    position: relative;
+    word-wrap: break-word;
+    font-weight: bold;
+}
+
+.comment.user-comment p{
+    background-color:  #f3f3f3;
+}
+
+.comment.author-comment p{
+    background-color:  #e2f8ff;
+    order: 1;
+}
+
+.user-comment p:after{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #f3f3f3;
+    left: -8px;
+    top: 18px;
+}
+
+.author-comment p:after{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #e2f8ff;
+    right: -8px;
+    top: 18px;
+}
+
+
+
+.write-new{
+    margin: 80px auto 0;
+    width: 50%;
+}
+
+.write-new textarea{
+    color:  #444;
+    font: inherit;
+
+    font-family: VT323, monospace;
+    outline: 0;
+    border-radius: 3px;
+    border: 1px solid #cecece;
+    background-color:  #fefefe;
+    box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.06);
+    overflow: auto;
+
+    width:100%;
+    min-height: 80px;
+    padding: 15px 20px;
+}
+
+.write-new img{
+    border-radius: 50%;
+    margin-top: 15px;
+}
+
+
+
+
+.test button:hover, .write-new button:hover {
+  background-color: #C48E83;
+  color: white;
+}
+
+
+.write-new button{
+    float:right;
+    background-color:  #87bae1;
+    font-family: VT323, monospace;
+    font-weight: bold;
+    color: whitesmoke;
+    font-size: 20px;
+    background:  #581845;
+    border-radius: 8px;
+    border: 0;
+    background:  #581845;
+    padding: 10px 25px;
+    margin-top: 18px;
+}
+
+
+
+
+@media (max-width: 800px){
+    .comment p{
+        width: 100%;
+    }
+
+    .comment.user-comment .info{
+        order: 3;
+        text-align: left;
+    }
+
+    .comment.user-comment .avatar{
+        order: 2;
+    }
+
+    .comment.user-comment p{
+        order: 1;
+    }
+
+
+    .comment.author-comment{
+        justify-content: flex-start;
+    }
+
+
+    .comment-section{
+        margin-top: 10px;
+    }
+
+    .comment .info{
+        width: auto;
+    }
+
+    .comment .info a{
+        padding-top: 15px;
+    }
+
+    .comment.user-comment .avatar,
+    .comment.author-comment .avatar{
+        padding: 15px 10px 0 18px;
+        width: auto;
+    }
+
+    .comment.user-comment p:after,
+    .comment.author-comment p:after{
+        width: 12px;
+        height: 12px;
+        top: initial;
+        left: 28px;
+        bottom: -6px;
+    }
+
+    .write-new{
+        width: 100%;
+    }
+}
+
+
+ul {
+  font-size: 15px;
+}

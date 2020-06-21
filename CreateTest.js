@@ -1,34 +1,27 @@
 import React from "react"
-import Question from './Question'
+import CreateQuestion from './CreateQuestion';
 
-class Test extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-          test: [{}]
-        }
+
+class CreateTest extends React.Component {
+    constructor (props) {
+    super(props)
+    this.state={
+      testName: ""
     }
-
-
-
-
-   componentDidMount() {
-    fetch("http://localhost:3000/dev/tests")
-            .then(response => response.json())
-            .then(data => {
-                this.setState({test: data.data})
-                 });
-    }  
-
-
+  }
+  
 
      render() {
-       const questionComponents = this.state.test.map(item => <Question key={item.id} question={item}/>);
         return (
         
-<div class="test"><form>
-     {questionComponents}
-       <input onSubmit={this.handleChange} type="submit"/>
+<div className="testCreate"><form>
+  <label for="questionCreate">Test name: </label>
+  <input type="text" value={this.state.testName} name="testName" onChange={this.handleChange} placeholder="Enter test name"/>
+	<CreateQuestion number="1"/>
+  <CreateQuestion number="2"/>
+  <CreateQuestion number="3"/>
+  <CreateQuestion number="4"/>
+  <CreateQuestion number="5"/>
 </form>
 </div>
 
@@ -37,4 +30,6 @@ class Test extends React.Component {
 
 }
 
-export default Test
+export default CreateTest
+
+

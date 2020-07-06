@@ -12,7 +12,7 @@ class Test extends React.Component {
           test: [{}],
           chapter: [{}]
         }
-      let param =  this.props.location.pathname;
+      /*let param =  this.props.location.pathname;
       var newString = param.substr(6)
       this.setState({testName: newString})
       const url = "http://localhost:3000/dev/chapter/"+newString;
@@ -20,27 +20,35 @@ class Test extends React.Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({testID: data.data.id})
-                 });
+                 });*/
   
     };
 
 
 
    componentDidMount() {
-  
-    console.log(this.state.testID)
-    const url = "http://localhost:3000/dev/tests/"+this.state.testID;
+    let param =  this.props.location.pathname;
+      var newString = param.substr(6)
+const URL = "http://localhost:3000/dev/chapter/"+newString;
+      fetch(URL)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({testID: data.data.id})
+                 }).finally(()=>{const url = "http://localhost:3000/dev/tests/"+this.state.testID;
     fetch(url)
             .then(response => response.json())
             .then(data => {
                 this.setState({test: data.data})
-                 });
+                 });})
+
+  
+    console.log(this.state.testID)
+    
     };
 
 
 
      render() {
-     
        const questionComponents = this.state.test.map(item => <Question key={item.id} question={item}/>);
         return (
               
@@ -56,6 +64,10 @@ class Test extends React.Component {
 }
 
 export default Test;
+
+
+
+
 
 
 

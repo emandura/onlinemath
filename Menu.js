@@ -5,10 +5,10 @@ function Menu() {
 
     return (
         <div className="row">
-        	<div className="columnM"><a href='/chapters'>First grade</a></div>
-  			<div className="columnM"><a href='/chapters'>Second grade</a></div>
-  			<div className="columnM"><a href='/chapters'>Third grade</a></div>
-  			<div className="columnM"><a href='/chapters'>Fourth grade</a></div>
+        	<div className="columnM"><a href='/chapters/1'>First grade</a></div>
+  			<div className="columnM"><a href='/chapters/2'>Second grade</a></div>
+  			<div className="columnM"><a href='/chapters/3'>Third grade</a></div>
+  			<div className="columnM"><a href='/chapters/4'>Fourth grade</a></div>
 		</div>
     )
 }

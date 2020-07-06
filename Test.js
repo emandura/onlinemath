@@ -1,40 +1,61 @@
-import React from "react"
-import Question from './Question'
+import React from "react";
+import Question from './Question.js';
+import {Link} from "react-router-dom";
+
 
 class Test extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props);
         this.state = {
-          test: [{}]
+          testName: "",
+          testID: "",
+          test: [{}],
+          chapter: [{}]
         }
-    }
-
+      let param =  this.props.location.pathname;
+      var newString = param.substr(6)
+      this.setState({testName: newString})
+      const url = "http://localhost:3000/dev/chapter/"+newString;
+      fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({testID: data.data.id})
+                 });
+  
+    };
 
 
 
    componentDidMount() {
-    fetch("http://localhost:3000/dev/tests")
+  
+    console.log(this.state.testID)
+    const url = "http://localhost:3000/dev/tests/"+this.state.testID;
+    fetch(url)
             .then(response => response.json())
             .then(data => {
                 this.setState({test: data.data})
                  });
-    }  
+    };
 
 
 
      render() {
+     
        const questionComponents = this.state.test.map(item => <Question key={item.id} question={item}/>);
         return (
-        
+              
 <div class="test"><form>
+ <p>{this.state.testID}</p>
+ <h1>{this.state.testName}</h1>
      {questionComponents}
-       <input onSubmit={this.handleChange} type="submit"/>
+  <Link to={{pathname: `/solution/${this.state.testID}`}}><input type="submit"/></Link>
 </form>
 </div>
-
-);
-    }
-
+    )
+  }
 }
 
-export default Test
+export default Test;
+
+
+

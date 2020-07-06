@@ -12,23 +12,15 @@ import history from './services/history'
 import { AuthContext } from "./auth";
 
 function App() {
-  	/*const existingTokens = JSON.parse(localStorage.getItem("tokens"));
-  	const [authTokens, setAuthTokens] = useState(existingTokens);
   
- 	const setTokens = (data) => {
-    	localStorage.setItem("tokens", JSON.stringify(data));
-    	setAuthTokens(data);
-  }*/
-
   return(
-  	 //<AuthContext.Provider value={false}>
+  	 
       <Router history={history}>
       <div>
         <Header/>
         <Routes/>
       </div>
       </Router>
-    // </AuthContext.Provider>
   );
 
 }

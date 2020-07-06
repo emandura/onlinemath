@@ -1,22 +1,37 @@
 import React from "react"
 import QuestionSolved from './QuestionSolved'
-import data from './data.js';
+import {Link} from 'react-router-dom'
+import Routes from './routes/index'
 
-function Soulitons () {
-   
-     const questionComponents = data.map(item => <QuestionSolved key={item.id} question={item}/>)
-       
-        return (
-        
-<div class="test"><form>
-	   {questionComponents}
-       <button>Comments</button>
-</form>
-</div>
+export default class Solutions extends React.Component {
+		constructor(props){
+			super(props);
+			this.state={
+				testName: "",
+				testID: this.props.testID,
+				test: [{}]
+			}
+		 const URL = "http://localhost:3000/dev/tests/"+this.props.testID;
+   			 fetch(URL)
+           		 .then(response => response.json())
+           		 .then(data => {
+            		    this.setState({test: data.data})
+               		  });
 
-);
 
+		}
 
+		render(){
+			
+			const questionComponents = this.state.test.map(item => <QuestionSolved answer={this.props.question.answer} key={item.id} question={item}/>)
+			return(
+				<div class="test"><form>
+				{questionComponents}
+				<Link to={{pathname: `/comments/${this.state.testID}`}}><button>Comments</button></Link>
+				</form></div>
+				)
+
+		}
 }
 
-export default Soulitons;
+

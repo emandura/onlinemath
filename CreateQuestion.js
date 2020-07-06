@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 class CreateQuestion extends React.Component {
     constructor() {
@@ -10,9 +11,7 @@ class CreateQuestion extends React.Component {
             optionC: "",
             optionD: "",
             rightAnswer: "",
-            testID: "",
-            counter: 1,
-            counterID: 1
+            chapterID: "",
         }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -33,21 +32,6 @@ class CreateQuestion extends React.Component {
 
       handleSubmit() {
 
-          fetch("http://localhost:3000/dev/tests")
-            .then(response => response.json())
-            .then(data => {
-                this.data.map((item)=> { 
-                    this.setState(prevState => ({
-                          counter: prevState.counter + 1
-                         }));
-                    if(this.state.counter%5==0){
-                      this.setState(prevState => ({
-                         counterID: prevState.counterID + 1
-                     }));
-                    }   
-                    })
-                 });
-
     const requestOptions = {
         method: 'POST',
         body: JSON.stringify({ 
@@ -58,12 +42,13 @@ class CreateQuestion extends React.Component {
             optionC: this.state.optionC,
             optionD: this.state.optionD,
             rightAnswer: this.state.rightAnswer,
-            testID: this.state.counterID
+            chapterID: parseInt(this.props.test)
         })
     };
     fetch('http://localhost:3000/dev/tests', requestOptions)
         .then(response => response.json())
         .then(data => this.setState({ postId: data.id }));
+    
 }
 
   
@@ -80,8 +65,7 @@ class CreateQuestion extends React.Component {
   <input type="text" value={this.state.optionB} name="optionB" onChange={this.handleChange} placeholder="Enter option number 2"/><label for="checkbox">Right answer?</label><input type="checkbox" onChange={this.handleChange} name="rigthAnswer" value={this.state.optionB} id="second"/>
   <input type="text" value={this.state.optionC} name="optionC" onChange={this.handleChange} placeholder="Enter option number 3"/><label for="checkbox">Right answer?</label><input type="checkbox" onChange={this.handleChange} name="rigthAnswer" value={this.state.optionC} id="third"/>
   <input type="text" value={this.state.optionD} name="optionD" onChange={this.handleChange} placeholder="Enter option number 4"/><label for="checkbox">Right answer?</label><input type="checkbox" onChange={this.handleChange} name="rigthAnswer" value={this.state.optionD} id="fourth"/>
-  </div>
-  <input type="submit"/>
+  </div><input type="submit"/>
 </form>
 </div>
 

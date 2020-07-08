@@ -5,7 +5,7 @@ import {
 	Link, 
 	Switch 
 } from 'react-router-dom'; 
-
+import Search from './Search';
 import './index.css';
 
 function Header() {
@@ -28,6 +28,4 @@ function Header() {
 }
 
 export default Header
-
-
 

@@ -15,6 +15,12 @@ export default class NewComment extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         };
 
+     componentDidMount() {
+        var tempDate = new Date();
+        var date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate() +' '+ tempDate.getHours()+':'+ tempDate.getMinutes();
+        
+        this.setState({time: date})
+};
 
       handleChange(event){
             const {name, value, type, checked, id} = event.target;
@@ -37,9 +43,9 @@ export default class NewComment extends React.Component {
         fetch('http://localhost:3000/dev/comments', requestOptions)
         .then(response => response.json())
         .then(data => this.setState({ postId: data.id }));
-     
-    
-        };
+       
+     }
+   
 
 	
 	render() {

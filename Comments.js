@@ -20,11 +20,12 @@ export default class Comments extends React.Component {
                  });
         };
 
+     
       
         render() {
              const commentComponents = this.state.comment.map((item) => <Comment key={item.id} comment={item}/>);
         return (
-           <ul class="comment-section">
+       <ul class="comment-section">
                 {commentComponents}
                 <NewComment id={this.props.testID}/>
           </ul>         

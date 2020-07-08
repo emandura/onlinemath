@@ -25,7 +25,7 @@ class CreateTest extends React.Component {
      render() {
         return (
          <div className="testCreate"><form>
-        <p>{this.state.testID}. {this.state.testName}</p>
+        <h1>{this.state.testID}. {this.state.testName}</h1>
         <CreateQuestion test={this.state.testID} number="1"/>
         <CreateQuestion test={this.state.testID} number="2"/>
         <CreateQuestion test={this.state.testID} number="3"/>

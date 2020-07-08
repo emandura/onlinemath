@@ -2,6 +2,8 @@
 import React, {useState} from 'react';
 import { withRouter, Redirect } from "react-router-dom";
 import history from './services/history';
+import { Alert } from 'react-alert'
+
 function Login(props) {
     const [state , setState] = useState({
         email : "",
@@ -24,11 +26,21 @@ function Login(props) {
           password: state.password
         })
       }).then((response) => {if (response.status == 200) {
-        console.log("usao");
+        setState(prevState => ({
+            ...prevState,
+            loggedIn : true
+        }))
+        const url = "http://localhost:3000/dev/tests/"+state.email;
+    fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                setState({type: data.data.type, name: data.data.name})
+                 });
         redirectToMenu();
          }else {
-          return <p>Wrong username or password!</p>;
+          alert("Wrong username or password");
         }
+
       }
       )
         

@@ -11,19 +11,22 @@ export default class Solutions extends React.Component {
 				testID: this.props.testID,
 				test: [{}]
 			}
-		 const URL = "http://localhost:3000/dev/tests/"+this.props.testID;
-   			 fetch(URL)
-           		 .then(response => response.json())
-           		 .then(data => {
+	
+
+		}
+
+		componentDidMount(){
+				 const URL = "http://localhost:3000/dev/tests/"+this.props.testID;
+   					¸fetch(URL)
+           		 	.then(response => response.json())
+           		 	.then(data => {
             		    this.setState({test: data.data})
                		  });
-
-
 		}
 
 		render(){
 			
-			const questionComponents = this.state.test.map(item => <QuestionSolved answer={this.props.question.answer} key={item.id} question={item}/>)
+			const questionComponents = this.state.test.map(item => <QuestionSolved answer={item.optionA} key={item.id} question={item}/>)
 			return(
 				<div class="test"><form>
 				{questionComponents}

@@ -5,7 +5,7 @@ import Question from './Question'
 
 function QuestionSolved (props) {
 
-    const mine=props.answer;
+    const mine=props¸question.userAnswer;
     const right=props.question.rightAnswer;
 
         return (
@@ -13,9 +13,9 @@ function QuestionSolved (props) {
 <div><form>
 	<label for="question">{props.question.id}. {props.question.question}</label>
         <p>Your answer:</p>
-        <div className="solution">{props.answer}</div> <Conditional right={right} mine={mine}/>
+        <div className="solution">{mine}</div> <Conditional right={right} mine={mine}/>
         <p>Right answer:</p>
-  		  <div className="solution">{props.question.rightAnswer}</div>
+  		  <div className="solution">{right}</div>
 
     <hr/>
 </form>

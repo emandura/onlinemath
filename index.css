@@ -2,6 +2,30 @@
     box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
+
+.search input {
+    height: 20px;
+}
+
+.search img {
+  height: 20px;
+}
+
+.search-icon {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.search {
+  height: 20px;
+  display: inline-block;
+}
+
+
 body {
     margin: 0;
     background-image: url('background.jpg');

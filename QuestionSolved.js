@@ -3,26 +3,17 @@ import Routes from './routes/index'
 import Conditional from './Conditional'
 import Question from './Question'
 
-function QuestionSolved (props) {
+export default function QuestionSolved (props) {
 
-    const mine=props¸question.userAnswer;
-    const right=props.question.rightAnswer;
+    return(
+        <div>
+        <label for="question">{props.question.id}. {props.question.question}</label>
+            <p>Your answer:</p>
+             <div className="solution">{props.question.userAnswer}</div><Conditional right={props.question.rightAnswer} mine={props.question.userAnswer}/>
+            <p>Right answer:</p>
+             <div className="solution">{props.question.rightAnswer}</div>
+        <hr/>
+        </div>
+        );
 
-        return (
-        
-<div><form>
-	<label for="question">{props.question.id}. {props.question.question}</label>
-        <p>Your answer:</p>
-        <div className="solution">{mine}</div> <Conditional right={right} mine={mine}/>
-        <p>Right answer:</p>
-  		  <div className="solution">{right}</div>
-
-    <hr/>
-</form>
-</div>
-
-);
-    }
-
-
-export default QuestionSolved;
+}

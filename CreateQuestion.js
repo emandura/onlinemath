@@ -56,7 +56,7 @@ class CreateQuestion extends React.Component {
      render() {
         return (
         
-<div className="testCreate"><form onSubmit={this.handleSubmit}>
+ <form onSubmit={this.handleSubmit}>
   <label for="questionCreate">Question {this.props.number}: </label>
   <input type="text" value={this.state.question} name="question" onChange={this.handleChange} placeholder="Enter question text"/>
   <label for="answerCreate">Answer options: </label>
@@ -67,7 +67,7 @@ class CreateQuestion extends React.Component {
   <input type="text" value={this.state.optionD} name="optionD" onChange={this.handleChange} placeholder="Enter option number 4"/><label for="checkbox">Right answer?</label><input type="checkbox" onChange={this.handleChange} name="rigthAnswer" value={this.state.optionD} id="fourth"/>
   </div><input type="submit"/>
 </form>
-</div>
+
 
 );
     }

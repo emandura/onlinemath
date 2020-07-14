@@ -2,14 +2,6 @@ import React,{useState} from "react"
 import Routes from './routes/index'
 
 
-/*function handleChange(event){
-
-  const answer = document.getElementById("question").value;
-    if (answer.value == props.question.rightAnswer) {
-    return("Correct");
-}
- }*/
-
 
 function Question (props) {
 
@@ -19,18 +11,19 @@ function Question (props) {
          const [rightAnswer,setRightAnswer] = useState() ; 
          setQuestion(props.question.question);
          setRightAnswer(props.question.rightAnswer);
-         setId(props.question.id); 
+         setId(props.question.id);
 
           function handleChange(e) {
-            setAnswer(e.target.value)
-            const requestOptions = {
+            setAnswer(e.target.value);
+           const requestOptions = {
                  method: 'POST',
                  body: JSON.stringify({ 
                        id: props.question.id,
                        rightAnswer: props.question.rightAnswer,
                        question: props.question.question,
                        userAnswer: answer,
-                      
+                       user: "user",
+                       testID: props.question.chapterID
                        })
               }
             fetch('http://localhost:3000/dev/answer', requestOptions)
@@ -42,13 +35,14 @@ function Question (props) {
         
 <div><form>
 	<label for="question">{props.question.id}. {props.question.question}</label>
-  		<select onChange={()=> handleChange}  id="question" name="question">
+  		<select onChange={handleChange} id="question" value={answer} name="question">
   			<option value="" disabled selected>Select the right answer</option>
     		<option value={props.question.optionA}>{props.question.optionA}</option>
     		<option value={props.question.optionB}>{props.question.optionB}</option>
     		<option value={props.question.optionC}>{props.question.optionC}</option>
     		<option value={props.question.optionD}>{props.question.optionD}</option>
   		</select>
+
 
     <hr/>
 </form>

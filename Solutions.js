@@ -9,15 +9,16 @@ export default class Solutions extends React.Component {
 			this.state={
 				testName: "",
 				testID: this.props.testID,
-				test: [{}]
+				test: [{}],
+				user: "user"
 			}
 	
 
 		}
 
 		componentDidMount(){
-				 const URL = "http://localhost:3000/dev/tests/"+this.props.testID;
-   					¸fetch(URL)
+				 const URL = "http://localhost:3000/dev/answers/"+this.props.testID+"/"+this.props.user;
+   				fetch(URL)
            		 	.then(response => response.json())
            		 	.then(data => {
             		    this.setState({test: data.data})

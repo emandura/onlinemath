@@ -10,14 +10,14 @@ export default class Solutions extends React.Component {
 				testName: "",
 				testID: this.props.testID,
 				test: [{}],
-				user: "user"
+				user: "/user"
 			}
 	
 
 		}
 
 		componentDidMount(){
-				 const URL = "http://localhost:3000/dev/answers/"+this.props.testID+"/"+this.props.user;
+				 const URL = "http://localhost:3000/dev/answers/"+this.props.testID+this.state.user;
    				fetch(URL)
            		 	.then(response => response.json())
            		 	.then(data => {
@@ -27,7 +27,7 @@ export default class Solutions extends React.Component {
 
 		render(){
 			
-			const questionComponents = this.state.test.map(item => <QuestionSolved answer={item.optionA} key={item.id} question={item}/>)
+			const questionComponents = this.state.test.map(item => <QuestionSolved key={item.id} question={item}/>)
 			return(
 				<div class="test"><form>
 				{questionComponents}

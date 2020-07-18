@@ -1,55 +1,61 @@
-import React,{useState} from "react"
-import Routes from './routes/index'
+import React, { useState, useEffect } from "react";
+
+export default class Question extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {answer: 'blah',
+optionA:props.question.optionA,
+optionB:props.question.optionB,
+optionC:props.question.optionC,
+optionD:props.question.optionD,
+question: props.question.question,
+questionID: props.question.id,
+rightAnswer: props.question.rightAnswer,
+chapterID: props.question.chapterID,
+id: props.question.id}
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({answer: event.target.value});
+    const requestOptions = {
+method: "POST",
+body: JSON.stringify({
+id: this.state.id,
+rightAnswer: this.state.rightAnswer,
+question: this.state.question,
+userAnswer:event.target.value,
+user: "user",
+testID: this.state.chapterID,
+}),
+};
+
+fetch("http://localhost:3000/dev/answer", requestOptions)
+.then((response) => response.json());
+  }
+
+ 
+
+  render() {
+    return (
+    	<div>
+    	<form>
+        <label for="question">{this.state.questionID}. {this.state.question}</label>
+   		
+          <select name="question" value={this.state.answer} onChange={this.handleChange}>
+            <option value="" disabled selected>Select the right answer</option>
+            <option value={this.state.optionA}>{this.state.optionA}</option>
+            <option value={this.state.optionB}>{this.state.optionB}</option>
+            <option value={this.state.optionC}>{this.state.optionC}</option>
+            <option value={this.state.optionD}>{this.state.optionD}</option>
+          </select>
+          <hr />
+      </form>
+      </div>
+    );
+  }
+}
 
 
 
-function Question (props) {
-
-         const [answer,setAnswer] = useState() ;
-         const [question,setQuestion] = useState() ;
-         const [id,setId] = useState() ;
-         const [rightAnswer,setRightAnswer] = useState() ; 
-         setQuestion(props.question.question);
-         setRightAnswer(props.question.rightAnswer);
-         setId(props.question.id);
-
-          function handleChange(e) {
-            setAnswer(e.target.value);
-           const requestOptions = {
-                 method: 'POST',
-                 body: JSON.stringify({ 
-                       id: props.question.id,
-                       rightAnswer: props.question.rightAnswer,
-                       question: props.question.question,
-                       userAnswer: answer,
-                       user: "user",
-                       testID: props.question.chapterID
-                       })
-              }
-            fetch('http://localhost:3000/dev/answer', requestOptions)
-                  .then(response => response.json())
-                  .then(data => this.setState({ postId: data.id }));
-        }
-
-        return (
-        
-<div><form>
-	<label for="question">{props.question.id}. {props.question.question}</label>
-  		<select onChange={handleChange} id="question" value={answer} name="question">
-  			<option value="" disabled selected>Select the right answer</option>
-    		<option value={props.question.optionA}>{props.question.optionA}</option>
-    		<option value={props.question.optionB}>{props.question.optionB}</option>
-    		<option value={props.question.optionC}>{props.question.optionC}</option>
-    		<option value={props.question.optionD}>{props.question.optionD}</option>
-  		</select>
-
-
-    <hr/>
-</form>
-</div>
-
-);
-    }
-
-
-export default Question

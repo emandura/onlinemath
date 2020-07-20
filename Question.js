@@ -18,6 +18,9 @@ id: props.question.id}
   }
 
   handleChange(event) {
+  	  var tempDate = new Date();
+      var date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate() +' '+ tempDate.getHours();
+
     this.setState({answer: event.target.value});
     const requestOptions = {
 method: "POST",
@@ -28,6 +31,7 @@ question: this.state.question,
 userAnswer:event.target.value,
 user: "user",
 testID: this.state.chapterID,
+date: date
 }),
 };
 

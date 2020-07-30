@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import UserProfile from './UserProfile';
 
 export default class Question extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {answer: 'blah',
+    this.state = {answer: "",
 optionA:props.question.optionA,
 optionB:props.question.optionB,
 optionC:props.question.optionC,
@@ -12,15 +13,20 @@ question: props.question.question,
 questionID: props.question.id,
 rightAnswer: props.question.rightAnswer,
 chapterID: props.question.chapterID,
-id: props.question.id}
+id: props.question.id,
+user: ""}
 
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount(){
+    var user = UserProfile.getEmail();
+    this.setState({user: user})
   }
 
   handleChange(event) {
   	  var tempDate = new Date();
       var date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate() +' '+ tempDate.getHours();
-
     this.setState({answer: event.target.value});
     const requestOptions = {
 method: "POST",
@@ -29,7 +35,7 @@ id: this.state.id,
 rightAnswer: this.state.rightAnswer,
 question: this.state.question,
 userAnswer:event.target.value,
-user: "user",
+user: this.state.user,
 testID: this.state.chapterID,
 date: date
 }),

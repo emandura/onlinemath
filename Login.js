@@ -3,11 +3,16 @@ import React, {useState} from 'react';
 import { withRouter, Redirect } from "react-router-dom";
 import history from './services/history';
 import { Alert } from 'react-alert'
+import UserProfile from './UserProfile';
+
 
 function Login(props) {
     const [state , setState] = useState({
+        user: [{}],
         email : "",
         password : "",
+        name: "",
+        type: "",
         successMessage: null
     })
     const handleChange = (e) => {
@@ -26,16 +31,6 @@ function Login(props) {
           password: state.password
         })
       }).then((response) => {if (response.status == 200) {
-        setState(prevState => ({
-            ...prevState,
-            loggedIn : true
-        }))
-        const url = "http://localhost:3000/dev/tests/"+state.email;
-    fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                setState({type: data.data.type, name: data.data.name})
-                 });
         redirectToMenu();
          }else {
           alert("Wrong username or password");
@@ -43,6 +38,9 @@ function Login(props) {
 
       }
       )
+        UserProfile.setEmail(state.email);
+        UserProfile.setUser(state.email);
+        UserProfile.setLoggedIn();
         
     }
      const redirectToMenu = () => {

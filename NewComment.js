@@ -1,15 +1,16 @@
 import React from 'react';
 import avatar from './avatar.png';
 import history from './services/history';
-import { useHistory, Link} from 'react-router-dom'
+import { useHistory, Link} from 'react-router-dom';
+import UserProfile from './UserProfile';
 
 export default class NewComment extends React.Component {
  constructor(){
             super();
             this.state = {
                  comment: [{}],
-                 user: "Jane Doe",
-                 time: "1 minute ago"
+                 user: "",
+                 time: ""
             }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -18,8 +19,9 @@ export default class NewComment extends React.Component {
      componentDidMount() {
         var tempDate = new Date();
         var date = tempDate.getFullYear() + '-' + (tempDate.getMonth()+1) + '-' + tempDate.getDate() +' '+ tempDate.getHours()+':'+ tempDate.getMinutes();
-        
-        this.setState({time: date})
+        var name = UserProfile.getName();
+        this.setState({time: date, user: name});
+
 };
 
       handleChange(event){

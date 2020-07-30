@@ -1,8 +1,13 @@
 import React from "react";
 import Routes from './routes/index'
 import {Link} from 'react-router-dom'
+import UserProfile from './UserProfile';
+
 
 function Menu() {
+
+    var type = UserProfile.getType();
+    var email = UserProfile.getEmail();
 
     return (
         <div className="row">
@@ -12,6 +17,7 @@ function Menu() {
   			<div className="columnM"><Link to={{pathname:'/chapters/4'}}>Fourth grade</Link></div>
 		</div>
     )
+
 }
 
 export default Menu

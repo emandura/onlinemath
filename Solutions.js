@@ -2,28 +2,34 @@ import React from "react"
 import QuestionSolved from './QuestionSolved'
 import {Link} from 'react-router-dom'
 import Routes from './routes/index'
+import UserProfile from './UserProfile';
 
 export default class Solutions extends React.Component {
+
 		constructor(props){
 			super(props);
 			this.state={
 				testName: "",
-				testID: this.props.testID,
+				testID: this.props.testID + "/",
 				test: [{}],
-				user: "/user"
+				user: "user"
 			}
 	
 
 		}
 
 		componentDidMount(){
-				 const URL = "http://localhost:3000/dev/answers/"+this.props.testID+this.state.user;
+    		var user = UserProfile.getEmail();
+   		    this.setState({user: user});
+   		    const URL = "http://localhost:3000/dev/answers/"+this.state.testID+this.state.user
    				fetch(URL)
            		 	.then(response => response.json())
            		 	.then(data => {
             		    this.setState({test: data.data})
                		  });
-		}
+  }
+
+	
 
 		render(){
 			

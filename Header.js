@@ -6,6 +6,7 @@ import {
 	Switch 
 } from 'react-router-dom'; 
 import './index.css';
+import UserProfile from './UserProfile';
 
 function Header() {
     return (
@@ -20,6 +21,7 @@ function Header() {
     <Link to={{pathname: "/chapters/4"}}>Fourth Grade</Link>
   </div>
 </div>
+    <Link to={{pathname: "/Login"}}><button className="logout" onClick={UserProfile.setEmail()}>Log out</button></Link>
 
         </header>
 

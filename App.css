@@ -18,6 +18,18 @@
   border-radius: 2px;
 }
 
+.logout {
+  background-color:  #581845;
+  color: white;
+  padding: 12px;
+  font-size: 15px;
+  border: none;
+  font-family: VT323, monospace;
+  font-weight: bold;
+  border-radius: 2px;
+  margin-left: 10px;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;

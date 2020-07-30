@@ -5,38 +5,36 @@ var UserProfile = (function() {
   var loggedIn = false;
 
   var getName = function() {
-    return full_name;    // Or pull this from cookie/localStorage
+    return full_name;    
   };
 
   var setName = function(name) {
     full_name = name;     
-    // Also set this in cookie/localStorage
   };
 
     var getEmail = function() {
-    return email;    // Or pull this from cookie/localStorage
+    return email;    
   };
   var setLoggedIn = function() {
     loggedIn = true;     
-    // Also set this in cookie/localStorage
   };
 
     var getLoggedIn = function() {
-    return loggedIn;    // Or pull this from cookie/localStorage
+    return loggedIn;  
   };
 
   var setEmail = function(name) {
     email = name;     
-    // Also set this in cookie/localStorage
+
   };
 
   var getType = function() {
-    return type;    // Or pull this from cookie/localStorage
+    return type;    
   };
 
   var setType = function(name) {
     type = name;     
-    // Also set this in cookie/localStorage
+    
   };
 
    var setUser = function(email){
